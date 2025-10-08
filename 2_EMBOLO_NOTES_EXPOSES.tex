@@ -1,0 +1,724 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}   
+\usepackage{lmodern}        
+\usepackage{geometry}
+\usepackage{enumitem}       
+\usepackage{babel}
+\usepackage{lmodern}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{array}        
+
+\begin{document}
+\thispagestyle{empty}
+
+% --- Bordure sur toute la page ---
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[line width=4pt, orange]
+    ($(current page.north west) + (1cm,-1cm)$)
+    rectangle
+    ($(current page.south east) + (-1cm,1cm)$);
+\end{tikzpicture}
+
+\vspace*{1.5cm}
+
+% --- Contenu principal : trois colonnes (gauche, centre, droite) ---
+\noindent
+\begin{minipage}{0.3\linewidth}
+    \begin{center}
+        \textbf{RÉPUBLIQUE DU CAMEROUN}\\
+        *****\\
+        Paix - Travail - Patrie\\
+        *****\\[0.3cm]
+
+        \textbf{UNIVERSITÉ DE YAOUNDÉ I}\\
+        *****\\[0.3cm]
+
+        ÉCOLE NATIONALE SUPÉRIEURE\\
+        POLYTECHNIQUE DE YAOUNDÉ\\
+        *****\\[0.3cm]
+
+        \textbf{DÉPARTEMENT DE GÉNIE}\\
+        ***** 
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+    \begin{center}
+        % Logos au centre
+        \includegraphics[width=3cm]{uy1.png}\\[0.5cm]
+        \includegraphics[width=3cm]{polytech.png}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+    \begin{center}
+        \textbf{REPUBLIC OF CAMEROON}\\
+        *****\\
+        Peace - Work - Fatherland\\
+        *****\\[0.3cm]
+
+        \textbf{UNIVERSITY OF YAOUNDE I}\\
+        *****\\[0.3cm]
+
+        NATIONAL ADVANCED SCHOOL\\
+        OF ENGINEERING OF YAOUNDE\\
+        *****\\[0.3cm]
+
+        \textbf{COMPUTER ENGINEERING}\\
+        ***** 
+    \end{center}
+\end{minipage}
+
+\vspace{2cm}
+
+% --- Sujet au centre ---
+\begin{center} 
+	\colorbox{orange!80}{
+        \parbox{\dimexpr\textwidth-4\fboxsep}{
+            \centering
+            {\LARGE \textbf{Techniques et pratiques de l'investigation numérique}}
+        }
+    }\\[0.8cm]
+    {\large \textbf{Sous le thème :} Résumé Techniques et pratiques de l'investigation numérique}\\[1.5cm]
+
+    \textbf{{EMBOLO MVOGO SHAWN DOUGLAS}}\\[0.8cm]
+    \textbf{{Matricule : 22P072}}\\[0.8cm]
+    \textbf{{Filière : CIN4}}\\[0.8cm]
+    Sous la supervision de : \textbf{Mr Minka}\\[1.5cm]
+
+    Année Scolaire : \textbf{2025 -- 2026}
+\end{center}
+
+
+\newpage
+\setcounter{page}{1}
+
+\tableofcontents
+\newpage
+
+\begin{center}
+
+    \section{INTRODUCTION}
+   Le présent document constitue une synthèse des principaux travaux réalisés dans le cadre du cours de \textit{Techniques et pratiques de l’investigation numérique}. Il propose une version condensée et structurée des différents thèmes abordés tout au long du semestre, mettant en lumière la diversité et la richesse des approches étudiées dans ce domaine en constante évolution.
+
+Au fil de ce travail, plusieurs thématiques majeures ont été explorées, alliant réflexion théorique, expérimentation technique et analyse critique. Parmi celles-ci figurent :
+
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item la conception d’une vidéo deepfake mettant en scène un chef de groupe dispensant un cours ;
+    \item la présentation détaillée du protocole ZK-NR et de ses applications potentielles en cybersécurité ;
+    \item l’étude approfondie des algorithmes de reconnaissance faciale et de leurs implications éthiques ;
+    \item la création d’un deepfake vocal illustrant les risques liés à la manipulation sonore ;
+    \item l’analyse comparative des trois meilleurs logiciels de rédaction de mémoire ;
+    \item la simulation d’une fausse conversation WhatsApp pour comprendre les techniques d’investigation numérique liées aux messageries instantanées ;
+    \item l’examen du rôle et de l’utilité de l’investigation numérique dans la police judiciaire ;
+    \item la présentation des dix cas les plus marquants de cyberattaques en Afrique au cours des dix dernières années ;
+    \item et enfin, la conception d’un faux profil TikTok, illustrant les méthodes de détection et de prévention de l’usurpation d’identité numérique.
+\end{itemize}
+
+L’ensemble de ces travaux vise à renforcer la compréhension des enjeux actuels de la cybersécurité, tout en développant les compétences pratiques nécessaires à l’analyse, à la prévention et à la résolution des incidents numériques.
+
+\newpage
+\section{A l'aide d'une IA pour réaliser une vidéo deepfake}
+
+\subsection{Définition du deepfake}
+Un \textbf{deepfake} est un enregistrement vidéo ou audio réalisé ou modifié grâce à l'intelligence artificielle. Ce terme fait référence non seulement au contenu ainsi créé, mais aussi aux technologies utilisées. Le mot \textit{deepfake} est une abréviation de \textit{Deep Learning} et \textit{Fake}, qui peut être traduit par « fausse profondeur ». Il désigne des contenus faux rendus profondément crédibles par l'intelligence artificielle.
+
+\subsection{Comment réaliser sa vidéo deepfake avec l’IA}
+Pour créer une vidéo deepfake ou générée par intelligence artificielle, il est essentiel de combiner des outils capables de produire à la fois le contenu textuel et visuel. Dans notre projet, nous avons utilisé \textbf{GPT-5} pour générer le script et les instructions détaillées du premier chapitre du cours, puis \textbf{HeyGen AI} pour transformer ce script en une vidéo réaliste, animant un avatar et synchronisant voix et mouvements.
+
+\subsection{Présentation des outils : HeyGen AI et GPT-5}
+
+\subsubsection{HeyGen AI}
+Créé en 2022, HeyGen est spécialisé dans la génération de vidéos à partir de simples instructions textuelles, sans nécessiter de compétences techniques avancées. Ses principales utilisations sont :
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Création de contenu et journalisme : diffusion de nouvelles ou histoires avec un impact visuel fort.
+    \item Communication d’entreprise : réalisation de vidéos de présentation de produits ou services.
+    \item Enseignement et formation : transformation des cours en expériences interactives et engageantes.
+\end{itemize}
+
+\subsubsection*{Fonctionnalités clés de HeyGen}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Création d’avatars ultra-réalistes à partir de photos.
+    \item Voix synthétiques avancées et clonage vocal précis.
+    \item Traduction et localisation multilingue avec synchronisation labiale.
+    \item Intégration dans des chaînes de production vidéo automatisées.
+\end{itemize}
+
+\subsubsection*{Processus de création d’une vidéo}
+Sélection d’un template, choix de l’avatar, rédaction du script, soumission de la vidéo pour génération rapide.
+
+\subsubsection{GPT-5}
+Lancé en août 2025 par OpenAI, GPT-5 est un modèle d’IA avancé capable de :
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Générer du texte, du code, des images et des applications complètes.
+    \item Traiter de longs documents et maintenir la cohérence des échanges.
+    \item Offrir des réponses rapides ou plus approfondies selon le besoin.
+\end{itemize}
+
+GPT-5 combine un modèle rapide à haut débit, un modèle de raisonnement et un routeur temps réel qui choisit le modèle adapté selon la complexité de la tâche. Il inclut différentes versions pour développeurs, allant de la version mini à la version nano, permettant d’optimiser vitesse et précision.
+
+\subsection{Réalisation de la vidéo}
+Pour le devoir, GPT-5 a été utilisé pour générer le script du premier chapitre du cours, tandis que HeyGen a permis de créer la vidéo finale, en animant l’avatar et en synchronisant voix et mouvements, grâce aux fonctionnalités avancées et à la personnalisation de l’outil.
+
+\section{ PRÉSENTATION DÉTAILLÉE DU PROTOCOLE ZK-NR:RL ET
+ POSITIONNEMENT DANS L’INVESTIGATION NUMÉRIQUE MODERNE}
+ 
+\subsection*{Présentation synthétique des articles}
+
+\subsection{Exploration de ZK-NR : Vision globale et applications}
+Le protocole \textbf{ZK-NR} (Zero-Knowledge Non-Repudiation) est une architecture cryptographique modulaire en couches, axée sur la non-répudiation tout en préservant la confidentialité pour la co-production de services numériques publics. Il combine des primitives post-quantiques (STARKs, signatures BLS à seuil, Dilithium) pour créer des preuves sécurisées, vérifiables et auditables, sans jamais révéler de contenu sensible. Modélisé dans \textit{Tamarin}, il s’adresse spécifiquement aux environnements réglementés (finance, e-gouvernement), offrant des attestations juridiquement admissibles.
+
+\subsection{Le Trilemme CRO : Équilibre entre Confidentialité, Fiabilité et Opposabilité}
+Le \textbf{Trilemme CRO} formalise une incompatibilité fondamentale pour tout système de preuve post-quantique : il est impossible de satisfaire simultanément la Confidentialité (Priv), la Fiabilité (Rel) et l’Opposabilité Juridique (HOpp). Une borne d’impossibilité est établie par la formule :
+\[
+\text{HOpp} \le f(\text{Priv}, \text{Rel}) + \eta_q(C) + \text{negl}(\lambda)
+\]
+Cette analyse théorique, validée empiriquement (\(\Gamma_{\text{CRO}} > 0,8\)), sert de fondation aux architectures cherchant à minimiser cette violation.
+
+\subsection{Q2CSI : Infrastructure de Sécurité Quantique Composable et Contextuelle}
+\textbf{Q2CSI} (Quantum-to-Classical Security Infrastructure) est un cadre en couches conçu pour résoudre le Trilemme CRO en décomposant la sécurité en trois strates isolées mais composables :
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Fer : Fiabilité
+    \item Or : Confidentialité
+    \item Argile : Opposabilité
+\end{itemize}
+Ce cadre abstrait étend le modèle de Composabilité Universelle (UC) en intégrant des contraintes entropiques, réduisant significativement la violation du trilemme (\(\Gamma_{\text{CRO}} < 0,4\)). Basé sur des primitives minimales (IND-CCA2, EUF-CMA), Q2CSI propose la première architecture formelle pour des protocoles post-quantiques juridiquement vérifiables.
+
+\subsection{Design ZK-NR : Cadre théorique et modélisation}
+La formalisation du protocole ZK-NR s’attache à son design théorique et à sa modélisation. S’appuyant sur les contraintes du trilemme CRO, cette contribution détaille comment des primitives spécifiques (engagements Merkle, STARKs, etc.) sont agencées pour atteindre l’équilibre requis entre responsabilité et confidentialité. Cette phase inclut une preuve de concept et une modélisation dans l’outil \textit{Tamarin}, fournissant des artefacts pratiques.
+
+\subsection{Problème AIIP : Authenticité et intégrité des preuves}
+Le \textbf{Problème d’Inversion Itérée Affine} (AIIP) est l’hypothèse cryptographique fondamentale du cadre CASH. Reposant sur la difficulté de résoudre des équations quadratiques multivariées (MQ) et des logarithmes discrets sur des courbes hyperelliptiques de genre élevé (HCDLP), l’AIIP garantit l’authenticité et l’intégrité des preuves dans les systèmes post-quantiques. Il sert de base pour les trois primitives CASH : CEE, AOW et SH.
+
+\subsubsection{CEE : Cryptographic Evidence Explainability (Confidentialité)}
+L’\textbf{Expansion Entropique Chaotique (CEE)} est une fonction post-quantique basée sur l’itération de cartes polynomiales. Sa sécurité repose sur l’AIIP et elle assure la confidentialité (Privacy) par une expansion entropique minimisant la prévisibilité et la distance statistique à l’uniforme. Malgré sa lenteur relative, elle garantit la résilience quantique des données.
+
+\subsubsection{AOW : Affine One-Wayness (Fiabilité)}
+L’\textbf{Affine One-Wayness (AOW)} est le primitif CASH dédié à la fiabilité (Reliability) via la vérification temporelle post-quantique. Basé sur l’AIIP, il permet une liaison temporelle robuste intégrée aux preuves STARKs, garantissant l’intégrité et la non-contestabilité du temps de production.
+
+\subsubsection{SH : Semantic Holder (Opposabilité)}
+Le \textbf{Semantic Holder (SH)} est le composant CASH dédié à l’opposabilité juridique (Opposability). Basé sur l’AIIP, il garantit des interprétations juridiques vérifiables et l’extraction algébrique des traces polynomiales, assurant un score d’opposabilité élevé (\(\Omega \ge 0,60\)).
+
+\subsection*{Synthèse comparative}
+L’ensemble des travaux présentés forme un écosystème de recherche cohérent, centré sur la construction d’une sécurité cryptographique post-quantique respectant les exigences institutionnelles de confiance et de droit.
+
+\subsection*{Rôle du ZK-NR dans l’Investigation Numérique}
+
+\subsection*{ Besoins des enquêteurs}
+Dans le cadre des enquêtes numériques, les magistrats et les forces de l’ordre se heurtent à plusieurs contraintes majeures :  
+
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item \textbf{Garantir l’intégrité des preuves collectées} : une preuve numérique est par nature volatile et altérable. Les enquêteurs doivent donc s’assurer que le contenu d’un disque dur, d’un message électronique ou d’un log réseau n’a subi aucune modification entre sa collecte et sa présentation au tribunal.
+    
+    \item \textbf{Prouver la non-répudiation des actes} : il ne suffit pas de montrer qu’une donnée existe ; il faut aussi démontrer de façon irréfutable que l’acte est bien attribuable à une personne donnée (ex. : un e-mail signé électroniquement par l’auteur présumé).
+    
+    \item \textbf{Préserver la confidentialité des données sensibles} : certaines enquêtes impliquent des données personnelles ou stratégiques. Il est indispensable de protéger ces informations tout en permettant une vérification cryptographique de leur validité.
+    
+    \item \textbf{Assurer la traçabilité et la chaîne de possession (chain of custody)} : chaque mouvement d’une preuve (collecte, transfert, stockage, analyse) doit être enregistré de manière fiable et opposable.
+\end{itemize}
+
+\section{les algorithmes de reconnaissance
+ faciale}
+ 
+La reconnaissance faciale est une technologie d'intelligence artificielle permettant d'identifier ou de vérifier l'identité d'une personne à partir de ses traits du visage. Elle analyse des caractéristiques uniques (distance entre les yeux, forme du nez, contours de la mâchoire ou des lèvres) et est utilisée dans divers domaines : sécurité, téléphonie mobile, réseaux sociaux, etc. Cependant, elle soulève des enjeux éthiques et juridiques liés à la protection des données personnelles et à la vie privée.
+
+\subsection{Mode de fonctionnement d'un système biométrique}
+Un système biométrique fonctionne en trois phases principales :
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item \textbf{Enrôlement} : capture et prétraitement des caractéristiques faciales de l'utilisateur, stockées en base avec éventuellement des informations biographiques.
+    \item \textbf{Identification} : recherche 1-N pour déterminer l'identité d'un individu inconnu parmi les profils enregistrés.
+    \item \textbf{Vérification (authentification)} : recherche 1-1 comparant les caractéristiques extraites à celles du profil déclaré, validée si le score de similitude dépasse un seuil.
+\end{itemize}
+
+\subsection*{Architecture d'un système biométrique}
+Un système biométrique se compose de quatre modules :
+\begin{enumerate}[leftmargin=*, label=\arabic*.]
+    \item \textbf{Capture/Acquisition} : collecte des données via caméra ou scanner.
+    \item \textbf{Extraction de caractéristiques} : transformation des données en représentation mathématique (vecteur de caractéristiques).
+    \item \textbf{Correspondance} : comparaison du vecteur extrait avec les modèles stockés.
+    \item \textbf{Décision} : confirmation ou rejet de l'identité selon le score obtenu.
+\end{enumerate}
+
+\subsection{Méthodes de reconnaissance faciale}
+Les algorithmes de reconnaissance faciale se répartissent en trois catégories : classiques, points d'intérêt et apprentissage automatique/profond.
+
+\subsubsection*{Méthodes classiques}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item \textbf{Méthodes globales} : utilisent l'ensemble du visage. Rapides mais sensibles aux variations de lumière, pose ou expression. Exemples : PCA (Eigenfaces), LDA, SVM, réseaux de neurones, GMM, modèles 3D.
+    \item \textbf{Méthodes locales (traits géométriques)} : se concentrent sur des régions spécifiques (yeux, nez, bouche), réduisant le bruit mais sensibles aux changements de vue. Exemples : HMM, EBGM, Eigen Object, template matching.
+    \item \textbf{Méthodes hybrides} : combinent approches globales et locales pour unir leurs avantages, par exemple deep learning global + descripteurs locaux (SIFT, HOG) pour plus de robustesse.
+\end{itemize} 
+
+\section{Deepfake Audio}
+
+Un \textbf{deepfake audio} est un enregistrement sonore falsifié généré par intelligence artificielle (IA), capable d'imiter la voix d'une personne et de produire des paroles qu'elle n'a jamais prononcées. Il repose sur l'apprentissage profond et soulève des enjeux pour l'investigation numérique.
+
+\subsection{Évolution des deepfakes audio}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item \textbf{1930-1990} : naissance des reproductions vocales (Voder, vocoders, synthèse par concaténation).
+    \item \textbf{2000-2015} : modèles statistiques (HMM) plus naturels mais encore artificiels.
+    \item \textbf{2016} : révolution du deep learning (WaveNet, DeepMind) et démonstrations publiques (Adobe VoCo, Lyrebird).
+    \item \textbf{2017-2020} : démocratisation avec modèles Tacotron, Deep Voice et outils open-source (SV2TTS, Real-Time-Voice-Cloning).
+    \item \textbf{2019-aujourd'hui} : usage malveillant croissant (fraudes, usurpations d'identité, désinformation).
+\end{itemize}
+
+\subsection*{Contexte d'utilisation}
+\textbf{Applications légitimes :}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Accessibilité et inclusion (personnes ayant perdu la parole).
+    \item Doublage audiovisuel et production multilingue.
+    \item Assistants virtuels et interfaces vocales.
+    \item Préservation des voix (mémoire ou patrimoine).
+\end{itemize}
+
+\textbf{Applications malveillantes :}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Escroqueries et fraudes financières par imitation vocale.
+    \item Usurpation d'identité et chantage.
+    \item Manipulation de l'opinion publique.
+    \item Falsification de preuves numériques.
+\end{itemize}
+
+\subsection{Enjeux pour l’investigation numérique}
+Les deepfakes audio compromettent le triptyque CRO :
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item \textbf{Confidentialité} : fuite de données sensibles.
+    \item \textbf{Fiabilité} : remise en cause de l'authenticité des preuves.
+    \item \textbf{Opposabilité} : difficulté à présenter les preuves devant un tribunal.
+\end{itemize}
+Ils rendent la vérification plus complexe et nécessitent transparence et compréhension technique (réseaux neuronaux, vocodeurs, spectrogrammes) pour anticiper les falsifications.
+
+\subsection*{Cas pratique : MINIMAX Audio}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item \textbf{Présentation} : outil de clonage vocal par IA, reproduisant timbre, intonation et rythme d'un locuteur réel.
+    \item \textbf{Applications positives} : éducation, doublage multilingue, assistants vocaux personnalisés.
+    \item \textbf{Applications détournées} : usurpation d'identité, escroqueries téléphoniques, diffusion de fausses informations.
+    \item \textbf{Risque éthique et sécuritaire} : atteinte à la réputation, fraude, chantage. Exemples : fraude par PDG (2019), tromperie de systèmes de reconnaissance vocale (Stanford, 2020), clonage à partir de 5 secondes d’enregistrement (MIT, 2022).
+\end{itemize}
+
+\subsection{Contre-mesures et prévention}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Détection technologique : outils d'analyse des signaux vocaux.
+    \item Sensibilisation et éducation : formation à la reconnaissance des risques.
+    \item Cadre légal et réglementaire : lois spécifiques et marquage numérique.
+    \item Techniques de sécurisation : authentification vocale dynamique et multi-facteur.
+    \item Éthique et gouvernance de l'IA : consentement et transparence dans l’usage.
+\end{itemize}
+
+MINIMAX Audio illustre le potentiel éducatif et les risques du deepfake vocal. Seule une combinaison de détection, régulation, sécurisation et éthique permettra d’en tirer les bénéfices tout en limitant les abus.
+
+\section{Outils pour la Rédaction de Mémoire}
+
+La rédaction d'un mémoire représente un défi majeur pour l'étudiant. La réussite dépend du choix des outils logiciels, qui doivent offrir :
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Un environnement adapté aux longs documents (LaTeX ou traitement de texte classique)
+    \item Une gestion rigoureuse des références bibliographiques
+    \item Une mise en forme conforme aux standards académiques
+\end{itemize}
+Nous présentons ici trois outils : Overleaf, Microsoft Word et Zotero.
+
+\subsection*{ Overleaf : L'Excellence Académique par LaTeX}
+\subsection*{1.1 Historique}
+Fondé en 2012 par John Hammersley et John Lees-Miller, Overleaf simplifie la rédaction collaborative en LaTeX. Racheté par Springer Nature en 2023, il est devenu un standard mondial pour les publications scientifiques.
+
+
+\subsection{Atouts majeurs}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Qualité typographique exceptionnelle
+    \item Gestion avancée des références croisées
+    \item Collaboration en temps réel
+    \item Modèles académiques prêts à l'emploi
+\end{itemize}
+
+\subsection*{1.4 Limites et alternatives}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Courbe d'apprentissage élevée pour les novices
+    \item Édition hors ligne limitée en version gratuite
+    \item Alternatives : LyX, TeXmaker, TeXstudio, Authorea
+\end{itemize}
+
+\subsection*{ Microsoft Word : Le Référencement en Traitement de Texte}
+\subsection*{ L'outil universel}
+Word est l'outil de traitement de texte le plus répandu, familier et compatible avec la majorité des utilisateurs et institutions.
+
+\subsection{Points forts académiques}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Gestion avancée des styles et structuration
+    \item Génération automatique des tables (matières, figures, tableaux)
+    \item Suivi des modifications et commentaires
+    \item Compatibilité et accessibilité
+\end{itemize}
+
+
+\section*{Zotero : Le Spécialiste de la Bibliographie}
+\subsection*{Présentation}
+Zotero est un gestionnaire de références open-source, centralisant et organisant toutes les sources d'un mémoire.
+
+\subsection{ Fonctionnalités essentielles}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Capture automatique des références depuis le web
+    \item Intégration avec Word, LibreOffice et Overleaf (BibTeX)
+    \item Gestion avancée des styles de citation (APA, MLA, Chicago, etc.)
+    \item Synchronisation et stockage cloud des PDF
+\end{itemize}
+
+\subsection*{ Intégrations techniques}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Export BibTeX depuis Zotero vers Overleaf
+    \item Plugins Zotero pour Word
+    \item Styles de citation cohérents sur tous les outils
+\end{itemize}
+
+\subsection{ Tableau Comparatif des Fonctionnalités}
+
+\begin{tabular}{|>{\raggedright}p{4cm}|>{\raggedright}p{3.5cm}|>{\raggedright}p{3.5cm}|>{\raggedright\arraybackslash}p{3.5cm}|}
+\hline
+\textbf{Fonctionnalité} & \textbf{Overleaf} & \textbf{Microsoft Word} & \textbf{Zotero} \\
+\hline
+Type d'outil & Éditeur LaTeX en ligne & Traitement de texte & Gestionnaire de références \\
+Prix & Gratuit limité / Payant & Payant (Office 365) / Gratuit version web & Entièrement gratuit \\
+Courbe d'apprentissage & Élevée & Faible & Modérée \\
+Collaboration & Excellent & Bon & Via Zotero Groups \\
+Gestion bibliographique & Via BibTeX & Basique & Exceptionnelle \\
+Qualité typographique & Professionnelle & Variable & N/A \\
+Styles de citation & Personnalisables & Limités & 10 000+ styles \\
+Gestion des équations & Excellente & Correcte & N/A \\
+Structure document & Via LaTeX code & Styles Word & Collections \\
+Export PDF & Natif & Correct & Oui \\
+Stockage cloud & Intégré & OneDrive / 300 MB gratuit & Synchronisation manuelle \\
+Modèles académiques & Nombreux & Quelques-uns & N/A \\
+\hline
+\end{tabular}
+
+\section{Simulation de Conversations WhatsApp et Investigation Numérique}
+
+Dans le contexte actuel, les applications de messagerie instantanée comme WhatsApp sont à la fois des sources d'information et des vecteurs de manipulation. L'investigation numérique vise à analyser et comprendre ces environnements, notamment les traces laissées par les utilisateurs et les possibilités de falsification.
+
+\subsection*{ Mise en situation}
+Le scénario simulé concerne un enseignant (Paul KENGNE) ayant une relation extra-conjugale avec une étudiante.  
+Éléments fournis pour l'analyse :
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Sept captures d'écran WhatsApp
+    \item Deux photos envoyées via WhatsApp
+\end{itemize}
+
+\subsection{ Contenu des échanges}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Messages à caractère affectif et sexuel explicite
+    \item Invitations à se rencontrer en dehors du cadre scolaire
+    \item Expressions telles que \emph{"Bonsoir mon cœur"}, \emph{"Je t'aime mon sucre"}
+    \item Promesse de l'époux de quitter sa femme
+\end{itemize}
+
+\subsection{ Méthodologie de falsification}
+Deux outils ont été utilisés : Chatsmock et Adobe Photoshop.
+
+\subsubsection{ Chatsmock}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Création de fausses conversations WhatsApp
+    \item Définition des participants (nom, photo, numéro)
+    \item Génération de messages personnalisés avec date, heure et statut de lecture
+    \item Export de captures d'écran réalistes
+\end{itemize}
+
+\subsubsection{ Adobe Photoshop}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Correction graphique (alignement, bulles, couleurs)
+    \item Insertion ou modification d’images
+    \item Retouche pour correspondre à l'interface réelle d'un smartphone
+\end{itemize}
+
+\subsection*{Conclusion méthodologique}
+La combinaison Chatsmock + Photoshop permet de créer des preuves numériques visuellement crédibles, montrant les limites des captures d'écran comme preuves irréfutables.
+
+\subsection{ Limites et comparaison des outils}
+\subsection{ Limites de Chatsmock}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Réalisme limité sur certains détails graphiques
+    \item Fonctionnalités restreintes (notes vocales, appels, réactions)
+    \item Export uniquement au format image
+    \item Détectable par une analyse forensique attentive
+\end{itemize}
+
+\subsection{ Comparaison avec d'autres outils}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item \textbf{FakeChat} : plus d’options visuelles mais moins crédible pour un expert
+    \item \textbf{WhatsFake} : orienté blagues, interface moins personnalisable
+    \item \textbf{Photoshop et éditeurs graphiques avancés} : liberté totale, réalisme quasi indétectable
+    \item \textbf{Outils forensiques détournés} : manipulation directe des bases de données
+\end{itemize}
+
+\subsection*{3.3 Conclusion partielle}
+Chatsmock est simple et accessible, mais ses limites peuvent être compensées par Photoshop ou d’autres outils plus sophistiqués.
+
+\subsection{ Impact sur l'investigation numérique et recommandations}
+
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Diminution de la fiabilité des captures d'écran
+    \item Besoin accru de compétences techniques pour les experts
+    \item Risque de manipulation judiciaire ou disciplinaire
+    \item Multiplication des faux dossiers
+\end{itemize}
+
+\subsection*{Recommandations}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Vérification technique des preuves (métadonnées, signature numérique)
+    \item Sensibilisation et formation des acteurs judiciaires
+    \item Utilisation d’outils spécialisés de détection de manipulations
+    \item Préférence pour les données brutes extraites des bases de données
+    \item Renforcement du cadre légal sur l’acceptabilité des preuves numériques
+\end{itemize}
+
+\section{L'Investigation Numérique au Service de la Police Judiciaire}
+
+L’investigation numérique, ou digital forensic, consiste à collecter, analyser, conserver et présenter des preuves numériques issues d’ordinateurs, téléphones, réseaux ou autres supports électroniques, dans le cadre d’enquêtes judiciaires, administratives ou privées. Son importance croissante découle de la digitalisation et de la cybercriminalité.
+
+\subsection*{ Apports essentiels à la police judiciaire}
+
+\subsection{ Accès à des preuves invisibles}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Récupération de traces difficiles à effacer : historiques, conversations supprimées, métadonnées, fichiers récupérables.
+    \item Création d’une ``scène de crime virtuelle'' complémentaire à la scène physique.
+\end{itemize}
+
+\subsection{ Lutte contre la cybercriminalité}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Résolution de piratage, fraudes en ligne, ransomwares, phishing.
+    \item Sans investigation numérique, ces infractions seraient presque impossibles à résoudre.
+\end{itemize}
+
+\subsection{ Identification et traçage des auteurs}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Analyse d’IP, journaux systèmes, connexions réseau.
+    \item Récupération de géolocalisation et communications (SMS, WhatsApp, emails).
+\end{itemize}
+
+\subsection{ Reconstitution des événements}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Chronologie des fichiers créés, modifiés ou transférés.
+    \item Connexions utilisateurs et données effacées.
+\end{itemize}
+
+\subsection{ Preuves recevables en justice}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Respect de l’intégrité et traçabilité des données.
+    \item Permet à la justice de prendre des décisions sur des preuves fiables.
+\end{itemize}
+
+\subsection{Soutien aux enquêtes traditionnelles}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Complète vidéosurveillance, fouilles physiques, recherches d’indices.
+\end{itemize}
+
+\subsection*{ Principaux domaines d’application}
+
+\subsection{ Cybercriminalité}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Exemples : réseaux de fraude en ligne à Douala, phishing ciblant entreprises.
+    \item Techniques : analyse logs, récupération données effacées, traçage flux financiers.
+\end{itemize}
+
+\subsection{Grande criminalité transfrontalière et terrorisme}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Exemples : trafic de stupéfiants Nigeria-Cameroun, cartographie de Boko Haram.
+    \item Techniques : analyse métadonnées, géolocalisation, profilage réseaux criminels.
+\end{itemize}
+
+\subsection{ Criminalité financière et économique}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Exemples : détournements fonds publics, fraudes fiscales.
+    \item Techniques : traçage transactions électroniques, data mining, corrélation données.
+\end{itemize}
+
+\subsection{Criminalité organisée et crimes violents}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Exemples : kidnapping à Yaoundé, vols à main armée dans le Littoral.
+    \item Techniques : reconstitution chronologique, analyse vidéo, communications téléphoniques.
+\end{itemize}
+
+\subsection{ Protection de l’enfance et lutte contre la pédopornographie}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Exemples : démantèlement de réseaux pédopornographiques.
+    \item Techniques : analyse images/vidéos, traçage IP, coopération internationale.
+\end{itemize}
+
+\subsection{ Enquêtes judiciaires classiques}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Exemples : fraudes électorales, conflits fonciers.
+    \item Techniques : authentification documents numériques, extraction preuves depuis ordinateurs et smartphones.
+\end{itemize}
+
+
+\section{Investigation Numérique et Cyberattaques en Afrique (2015-2025)}
+
+\subsection*{Contexte général}
+Depuis une décennie, l’Afrique connaît une révolution numérique rapide, avec :  
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item L’essor des technologies de l’information.
+    \item La digitalisation des services publics.
+    \item L’émergence des fintechs et des services numériques.
+\end{itemize}
+
+\subsection*{3. Dix cas africains emblématiques (2015-2025)}
+
+\subsection{Cas 1 – Ransomware Transnet (Afrique du Sud, 2021)}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Entreprise publique logistique et transport.
+    \item Taille : Nationale, ports de Durban, Cape Town, Ngqura.
+    \item Volume : 7 To de données logistiques et ERP chiffrées.
+    \item Impact financier : 60 millions USD de pertes, 3 semaines d’arrêt.
+\end{itemize}
+
+\subsection{Cas 2 – Breach CNSS (Maroc, 2025)}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Organisme étatique de sécurité sociale.
+    \item Taille : 2 millions de salariés, 500 000 entreprises.
+    \item Volume : Données personnelles, salaires, historiques médicaux.
+    \item Impact financier : perte de confiance, coûts de remédiation élevés.
+\end{itemize}
+
+\subsection{Cas 3 – Attaque Eneo (Cameroun, 2024)}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Fournisseur national d’électricité.
+    \item Taille : Perturbation des systèmes de facturation et prépayés.
+    \item Volume : Données clients et journaux de transaction compromis.
+    \item Impact financier : plusieurs centaines de millions de FCFA.
+\end{itemize}
+
+\subsection{Cas 4 – GhostLocker 2.0 (Egypte, 2024)}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Entreprises industrielles et gouvernementales.
+    \item Taille : 30 organisations ciblées.
+    \item Volume : Documents stratégiques, données industrielles, accès VPN volés.
+    \item Impact financier : 20 millions USD rançon + pertes indirectes.
+\end{itemize}
+
+\subsection{Cas 5 – Scandale Pegasus (Maroc, 2020-2021)}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Entreprises industrielles et gouvernementales.
+    \item Taille : 30 organisations.
+    \item Volume : Données industrielles et documents stratégiques volés.
+    \item Impact financier : 20 millions USD + pertes indirectes.
+\end{itemize}
+
+\subsection{Cas 6 – Piratage banques ivoiriennes}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Banques privées (UBA, BNI, NSIA Bank).
+    \item Taille : Attaques simultanées sur plusieurs systèmes.
+    \item Volume : Données clients, identifiants bancaires, transactions SWIFT.
+    \item Impact financier : 6 millions EUR de pertes.
+\end{itemize}
+
+\subsection{Cas 7 – Systèmes de santé tunisien (2021)}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Ministère de la Santé et hôpitaux.
+    \item Taille : Attaque DDoS + ransomware.
+    \item Volume : Dossiers médicaux et serveurs hospitaliers.
+    \item Impact financier : 2,5 millions USD, retards dans traitements.
+\end{itemize}
+
+\subsection{Cas 8 – Ethiopian Airlines (2023)}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Compagnie aérienne nationale.
+    \item Taille : Compromission mondiale du système de réservation.
+    \item Volume : Données personnelles de milliers de passagers.
+    \item Impact financier : 5 millions USD + atteinte réputation.
+\end{itemize}
+
+\subsection{Cas 9 – Fraude Mobile Money MTN Nigeria (2018)}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Télécom et fintech.
+    \item Taille : Réseau mobile de millions d’utilisateurs.
+    \item Volume : Données transactionnelles et identifiants mobiles.
+    \item Impact financier : 8 millions USD.
+\end{itemize}
+
+\subsection{Cas 10 – Piratage Banque Centrale Nigeria (2015-2016)}
+
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Type : Institution financière étatique.
+    \item Taille : Intrusion longue durée sur serveurs SWIFT.
+    \item Volume : Données financières et courriers internes.
+    \item Impact financier : plusieurs dizaines de millions USD.
+
+\end{itemize}
+
+\section{Investigation Numérique sur TikTok : Projet Innotrends}
+
+\subsection*{Contexte}
+À l’ère des réseaux sociaux, TikTok influence l’opinion, les comportements et les interactions humaines. Ce projet s’inscrit dans une démarche pédagogique visant à :  
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Comprendre les enjeux de l’identité numérique.  
+    \item Analyser la viralité des contenus et les risques de manipulation.  
+    \item Sensibiliser aux bonnes pratiques de sécurité en ligne.
+\end{itemize}
+
+Pour ce faire, un faux profil a été créé autour de la cybersécurité, dans un cadre strictement fictif et éthique, afin d’observer les réactions et interactions générées.
+
+
+\subsection{1.1 Création du faux profil}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Utilisation d’une messagerie temporaire (Temp Mail) pour préserver l’anonymat.  
+    \item Base d’observation et d’analyse des interactions dans la niche cybersécurité.
+\end{itemize}
+
+
+\subsection*{ Stratégie de contenu}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Contenu éducatif et engageant autour de thématiques :  
+    \begin{itemize}[leftmargin=*, label=--]
+        \item Sécurité des mots de passe  
+        \item Gestion des données personnelles  
+        \item Arnaques en ligne
+    \end{itemize}
+    \item Ton léger et humoristique pour favoriser l’engagement.  
+    \item Publications accompagnées de visuels attractifs (bandes dessinées, vidéos courtes).  
+    \item Respect des règles de la plateforme et observation des réactions sans manipulation.
+\end{itemize}
+
+\subsection{Outils et moyens de suivi}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item TikTok Analytics : vues, likes, partages, taux d’engagement, abonnés.  
+    \item Captures d’écran et suivi des publications.  
+    \item Générateurs de contenu : ChatGPT (messages), Canva (visuels).  
+    \item Temp Mail pour le compte, WhatsApp pour partager les accès.  
+    \item Tableau de bord personnel pour noter observations et hypothèses.
+\end{itemize}
+
+\subsection*{ Analyse et observation}
+
+\subsection{ Pertinence de la stratégie}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Contenu éducatif + ton ludique + visuels accrocheurs = engagement du public.  
+    \item Thématiques proches du quotidien (Wi-Fi public, mots de passe, arnaques) favorisent identification et interactions.  
+    \item La bio percutante contribue à l’attractivité et à la crédibilité du profil.
+\end{itemize}
+
+\subsection{ Comportement des utilisateurs}
+\begin{itemize}[leftmargin=*, label=\textbullet]
+    \item Même fictif, le faux profil soulève des enjeux éthiques liés à la simulation de comportements frauduleux.  
+    \item Nécessité de ne pas tromper ni mettre en danger les utilisateurs.  
+    \item Met en lumière le pouvoir de manipulation des réseaux sociaux et la responsabilité des diffuseurs de contenu.
+\end{itemize}
+
+\section*{Conclusion générale}
+
+Ce projet d’investigation numérique autour d’un faux profil TikTok a permis de mettre en lumière plusieurs enseignements clés.  
+Tout d’abord, il illustre le pouvoir des réseaux sociaux pour capter l’attention et diffuser des informations, même dans un cadre fictif et pédagogique. La cybersécurité, en tant que thématique, s’est révélée pertinente pour sensibiliser les utilisateurs aux risques numériques et aux bonnes pratiques à adopter.  
+
+Ensuite, l’expérience souligne l’importance de l’éthique et de la responsabilité dans toute démarche d’investigation numérique. Même à des fins éducatives, la création de faux profils et la diffusion de contenus simulés nécessitent un encadrement strict afin de protéger les utilisateurs et de respecter leur vie privée.  
+
+Enfin, ce travail met en évidence le potentiel pédagogique de l’observation et de l’analyse des interactions numériques. Il permet non seulement de comprendre le comportement des utilisateurs, mais également d’identifier les vecteurs de diffusion de l’information et les vulnérabilités numériques.  
+
+Ainsi, l’investigation numérique, combinée à une approche éthique et structurée, constitue un outil précieux pour l’éducation, la prévention et la sensibilisation à la cybersécurité, tout en renforçant la réflexion critique sur les usages des plateformes sociales.
+\end{center}
+\end{document}
