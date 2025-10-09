@@ -1,0 +1,270 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}   
+\usepackage{lmodern}        
+\usepackage{geometry}
+\usepackage{enumitem}       
+\usepackage{babel}
+\usepackage{lmodern}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{array}        
+
+\begin{document}
+\thispagestyle{empty}
+
+% --- Bordure sur toute la page ---
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[line width=4pt, orange]
+    ($(current page.north west) + (1cm,-1cm)$)
+    rectangle
+    ($(current page.south east) + (-1cm,1cm)$);
+\end{tikzpicture}
+
+\vspace*{1.5cm}
+
+% --- Contenu principal : trois colonnes (gauche, centre, droite) ---
+\noindent
+\begin{minipage}{0.3\linewidth}
+    \begin{center}
+        \textbf{RÉPUBLIQUE DU CAMEROUN}\\
+        *****\\
+        Paix - Travail - Patrie\\
+        *****\\[0.3cm]
+
+        \textbf{UNIVERSITÉ DE YAOUNDÉ I}\\
+        *****\\[0.3cm]
+
+        ÉCOLE NATIONALE SUPÉRIEURE\\
+        POLYTECHNIQUE DE YAOUNDÉ\\
+        *****\\[0.3cm]
+
+        \textbf{DÉPARTEMENT DE GÉNIE}\\
+        ***** 
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+    \begin{center}
+        % Logos au centre
+        \includegraphics[width=3cm]{uy1.png}\\[0.5cm]
+        \includegraphics[width=3cm]{polytech.png}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+    \begin{center}
+        \textbf{REPUBLIC OF CAMEROON}\\
+        *****\\
+        Peace - Work - Fatherland\\
+        *****\\[0.3cm]
+
+        \textbf{UNIVERSITY OF YAOUNDE I}\\
+        *****\\[0.3cm]
+
+        NATIONAL ADVANCED SCHOOL\\
+        OF ENGINEERING OF YAOUNDE\\
+        *****\\[0.3cm]
+
+        \textbf{COMPUTER ENGINEERING}\\
+        ***** 
+    \end{center}
+\end{minipage}
+
+\vspace{2cm}
+
+% --- Sujet au centre ---
+\begin{center} 
+	\colorbox{orange!80}{
+        \parbox{\dimexpr\textwidth-4\fboxsep}{
+            \centering
+            {\LARGE \textbf{Techniques et pratiques de l'investigation numérique}}
+        }
+    }\\[0.8cm]
+    {\large \textbf{Sous le thème :} Résumé Techniques et pratiques de l'investigation numérique}\\[1.5cm]
+
+    \textbf{{EMBOLO MVOGO SHAWN DOUGLAS}}\\[0.8cm]
+    \textbf{{Matricule : 22P072}}\\[0.8cm]
+    \textbf{{Filière : CIN4}}\\[0.8cm]
+    Sous la supervision de : \textbf{Mr Minka}\\[1.5cm]
+
+    Année Scolaire : \textbf{2025 -- 2026}
+\end{center}
+
+
+\newpage
+\setcounter{page}{1}
+
+\newpage
+
+\section{ Partie 1 : Analyse Historique et Épistémologique}
+
+\subsection{ Analyse Comparative des Régimes de Vérité}
+
+Périodes choisies : Les Prémices (1970-1990) vs L'Ère de l'IA et du Quantique (2020-Présent. \\ Notre périodisation repose sur quatre axes d'analyse dont la dominance
+ relative dé nit chaque régime :\\
+ T : Transformations Technologiques\\
+ J : Évolutions Juridiques et Normatives\\
+ S : Mutations Sociales et Culturelles\\
+ P : Pratiques Professionnelles et Méthodologiques\\
+ 
+
+\section*{Vecteurs de dominance}
+
+\subsection{Les Prémices (1970-1990) : L'Émergence de la Trace Électronique}
+
+Ici, le paysage est dominé par la :
+\begin{itemize}
+\item Technique (T $\approx$ 0.7)
+\item Juridique (J $\approx$ 0.1) 
+\item Social (S $\approx$ 0.1)
+\item Pratique (P $\approx$ 0.1)
+\end{itemize}
+
+\textbf{Vecteur } $\mathbf{R_{(1970-90)}} \approx (0.7, 0.1, 0.1, 0.1)$
+
+\subsection{L'Ère Post-Quantique et IA (2020-Présent) : Le Grand Saut}
+
+\begin{itemize}
+\item Technique (T $\approx$ 0.4)
+\item Juridique (J $\approx$ 0.3)
+\item Social (S $\approx$ 0.1)
+\item Pratique (P $\approx$ 0.1)
+\end{itemize}
+
+\textbf{Vecteur } $\mathbf{R_{(2020-)}} \approx (0.4, 0.3, 0.1, 0.2)$
+
+\subsection{Discontinuités épistémologiques}
+
+\paragraph{De la preuve-objet à la preuve-système :}
+Dans les prémices, la preuve était un \textbf{artefact tangible} : un fichier log, une disquette. Aujourd'hui, la preuve est un \textbf{phénomène émergent} d'un système complexe. Personne ne « tient » la preuve; elle est distribuée dans des milliards de lignes de logs, des comportements réseau anormaux, et les prédictions d'un modèle d'IA. La preuve n'est plus une chose, c'est une \textbf{relation}.
+
+\paragraph{La mort de l'expert omniscient et la naissance du prêtre de la boîte noire :}
+L'autorité, dans les prémices, était l'\textbf{expert technique}. C'était un sorcier qui comprenait les incantations (le code) et pouvait raconter l'histoire du crime. Aujourd'hui, l'autorité est souvent l'\textbf{algorithme d'IA}. L'expert moderne n'est plus celui qui sait, mais celui qui sait \textbf{interroger l'oracle}. Il est le gardien du temple, celui qui peut interpréter les signes (les sorties du modèle) pour le commun des mortels (les juges). C'est un changement de statut métaphysique de la vérité : elle n'est plus démontrée, elle est \textbf{révélée} par une intelligence non-humaine.
+
+\paragraph{L'échelle qui a tué le contexte :}
+Dans les années 80, on analysait un piratage comme un roman policier : on suivait une piste, on comprenait les motivations, les moyens. Aujourd'hui, face à des attaques comme SolarWinds, l'échelle est telle que la compréhension narrative est impossible. On ne comprend plus \emph{pourquoi}, on constate \emph{comment}. La vérité devient statistique, probabiliste, déshumanisée.
+
+\subsection{La tempête sociotechnique}
+
+\begin{itemize}
+\item \textbf{La poussée technologique (T)} a été la plus violente : le cloud a dissous les frontières physiques, et l'IA a introduit une couche d'intelligence non-humaine, créant ce « régime de vérité algorithmique » où la preuve peut être à la fois probante et incompréhensible.
+
+\item \textbf{La réaction juridique (J)} a été un rattrapage frénétique. Les affaires Snowden ou les attaques transnationales ont forcé le droit à sortir de son cadre national et à se confronter à l'ubiquité de la data. Le RGPD est un exemple de cette tentative désespérée de reprendre le contrôle.
+\end{itemize}
+
+\subsection{Question critique : Révolution ou évolution ?}
+
+C'est une \textbf{révolution qui a pris l'apparence d'une évolution}.
+
+La transition a semblé progressive, mois après mois, outil après outil. Mais si l'on compare les deux extrémités du spectre, le saut est abyssal. On est passé d'un monde où la vérité numérique était une \textbf{affaire humaine, locale et artisanale} à un monde où elle est une \textbf{affaire post-humaine, globale et industrielle}. Le point de rupture, le « Big Bang », se situe probablement au tournant des années 2010, lorsque le volume de données a dépassé le seuil au-delà duquel l'intelligence humaine seule est devenue inadéquate. C'est une révolution silencieuse, qui s'est jouée non pas dans la rue, mais dans les data centers.
+
+\section*{Exercice 2 : Étude de Cas Archéologique Foucaldienne}
+
+\subsection{Affaire choisie : L'Opération Sundevil (1990)}
+
+Plongeons-nous dans le monde mental de 1990. L'Internet public n'existe pas encore. Le « cyberespace » est une terre de légendes, peuplée de hackers et de pirates.
+
+\subsubsection{1. Le corpus : Ce qui constituait la « réalité » de l'époque}
+
+\begin{itemize}
+\item \textbf{Sources primaires :} Les communiqués du Service Secret américain, les articles de journaux au ton souvent sensationnaliste (« La grande chasse aux hackers ! »), les témoignages dans des magazines comme \emph{Phrack}.
+\item \textbf{L'imaginaire collectif :} Des films comme \emph{War Games} ont préparé le terrain culturel. Le hacker est perçu comme un génie adolescent ou un dangereux anarchiste.
+\end{itemize}
+
+\subsubsection{2. Ce qui était « pensable » et « dicible » en 1990 : La formation discursive}
+
+\paragraph{Énoncés possibles (le « dicible ») :}
+\begin{itemize}
+\item « Les hackers sont une menace pour la sécurité nationale. »
+\item « Il faut des lois spécifiques pour criminaliser ces intrusions. »
+\item « La preuve réside dans les systèmes saisis (les ordinateurs, les disquettes). »
+\item « Nous menons une opération de police traditionnelle, mais avec de nouveaux outils. »
+\end{itemize}
+
+\paragraph{Énoncés impensables (l'« impensable ») :}
+\begin{itemize}
+\item « Le piratage est un service de renseignement économique pratiqué par les États. » (C'était impensable comme accusation officielle).
+\item « La vraie menace viendra un jour de la chaîne d'approvisionnement logicielle. » (La notion de « supply chain attack » n'existait pas).
+\item « La preuve la plus cruciale est volatile et réside dans la mémoire vive. » (L'importance de la forensique sur la mémoire live n'était pas établie).
+\item « Ces opérations pourraient un jour nécessiter une collaboration internationale de journalistes. » (Le modèle des Panama Papers était inimaginable).
+\end{itemize}
+
+\subsubsection{3. Le régime de vérité en action : Une opération de police qui s'invente}
+
+\begin{itemize}
+\item \textbf{Preuve paradigmatique :} La \textbf{saisie physique}. La vérité est littéralement \textbf{matérialisée} dans les 42 ordinateurs saisis. C'est une vision très « policier de quartier » étendue au numérique : on entre par la porte et on saisit les preuves.
+\item \textbf{Autorité épistémique :} L'\textbf{État}, incarné par le Service Secret. C'est lui qui dit le vrai. L'expert technique est au service de cette autorité, il ne la constitue pas encore pleinement.
+\item \textbf{Condition d'acceptabilité sociale :} L'opération est un \textbf{rituel}. Son but est autant de punir que de \textbf{montrer la force de l'État} face à une nouvelle forme de délinquance incomprise. Elle doit être spectaculaire pour être crédible. C'est un « fait social total » qui permet à la société de se rassurer en catégorisant et en réprimant une menace floue.
+\end{itemize}
+
+\subsubsection{4. Comparaison avec une affaire contemporaine : L'Attaque SolarWinds (2020)}
+
+\begin{itemize}
+\item \textbf{Sundevil (1990) :} Le régime de vérité est \textbf{juridico-policier}. La vérité se construit par la \textbf{raideur} (des perquisitions, des saisies) et vise à produire un \textbf{coupable} pour un tribunal.
+\item \textbf{SolarWinds (2020) :} Le régime de vérité est \textbf{technico-stratégique}. La vérité se construit par l'\textbf{analyse comportementale IA} et vise d'abord à \textbf{comprendre une campagne d'action} pour s'en défendre. L'attribution est complexe, floue, souvent politique. La « preuve » n'est plus pour le tribunal, mais pour le conseil de sécurité nationale. On est passé de la police à la \textbf{guerre algorithmique}. La vérité n'est plus une fin, c'est une arme.
+\end{itemize}
+
+\section{Partie 3 : Investigation Historique Appliquée}
+
+\subsection*{Exercice 6 : Reconstruction Archéologique d'Investigation}
+
+\subsubsection{Affaire choisie : Le Virus Michelangelo (1992)}
+
+En 1992, la nouvelle fait le tour du monde : un virus informatique, le « Michelangelo », est programmé pour se déclencher le 6 mars (anniversaire de l'artiste) et effacer les disques durs. C'est une panique médiatique mondiale.
+
+\paragraph{1. L'enquête à l'ancienne : Dans la peau d'un expert en 1992}
+
+\begin{itemize}
+\item \textbf{L'état d'esprit :} C'est la \textbf{Grande Peur} du numérique. Le public découvre que ces machines peuvent être « malades ». L'expert est un \textbf{médecin légiste} face à une nouvelle peste.
+\item \textbf{La boîte à outils :}
+\begin{itemize}
+\item Un \textbf{éditeur hexadécimal} pour disséquer le corps du virus, instruction par instruction.
+\item Des \textbf{antivirus de première génération} qui fonctionnent par signatures simples.
+\item Des \textbf{disquettes de boot « propres »} pour ne pas contaminer la machine d'analyse.
+\item Beaucoup de \textbf{café et de patience}. L'analyse est lente, fastidieuse. On « sent » le code.
+\end{itemize}
+\item \textbf{La méthode :} C'est de la \textbf{microchirurgie statique}. On isole le virus sur une machine quarantaine. On le désassemble. On cherche ses signatures, son point d'activation. On comprend son mode de propagation (les disquettes !). L'enquête est rétrospective, après la découverte de la menace.
+\end{itemize}
+
+\paragraph{2. L'enquête revisitée avec un regard moderne (2024)}
+
+\begin{itemize}
+\item \textbf{L'état d'esprit :} Le Michelangelo serait aujourd'hui un \textbf{nuisanceware} parmi des millions. L'approche n'est plus curative mais \textbf{préventive et systémique}.
+\item \textbf{La boîte à outils :}
+\begin{itemize}
+\item Des \textbf{sandbox dynamiques} qui exécutent le virus dans un environnement virtuel et cartographient tous ses comportements en quelques minutes.
+\item Des \textbf{plateformes EDR (Endpoint Detection and Response)} qui auraient détecté le comportement d'écriture du boot sector en temps réel sur tous les postes de l'entreprise.
+\item L'\textbf{analyse heuristique et comportementale} qui aurait identifié le code comme malveillant même sans signature spécifique.
+\item Des \textbf{systèmes de threat intelligence} qui auraient partagé les indicateurs de compromission (IOCs) à l'échelle mondiale en quelques secondes.
+\end{itemize}
+\item \textbf{La méthode :} C'est une \textbf{réponse automatisée et en temps réel}. Le virus serait contenu avant même d'avoir pu se propager largement. L'enquête ne porterait plus sur « qu'est-ce que c'est ? » mais sur « d'où vient-il et qui est derrière ? » via l'OSINT et la corrélation avec d'autres campagnes.
+\end{itemize}
+
+\paragraph{3. Le choc des régimes de vérité : De la peur à l'indifférence}
+
+\begin{itemize}
+\item \textbf{En 1992 (Régime Artisanal) :} La vérité sur le Michelangelo était \textbf{anxiogène et narrative}. Elle était construite par quelques experts dans des labos, relayée par une presse sensationnaliste. La vérité était : « Ce virus est dangereux, voici sa date d'activation, voici comment s'en protéger. » Elle avait un \textbf{impact émotionnel fort} sur la société.
+\item \textbf{Aujourd'hui (Régime Industriel) :} La vérité sur une menace équivalente serait \textbf{froide et statistique}. Elle serait produite automatiquement par des machines. La vérité serait : « Un malware de la famille X avec un score de sévérité de 4/10 a été détecté et contenu sur 0.001\% des endpoints. Les IOCs ont été partagés. » C'est une \textbf{vérité opérationnelle}, dénuée de récit, conçue pour être consommée par d'autres machines (les systèmes de sécurité). La panique de 1992 est devenue une ligne dans un dashboard.
+\end{itemize}
+
+\paragraph{4. Le prix de la modernité : La perte de l'intimité avec la menace}
+
+L'expert de 1992 connaissait le Michelangelo intimement. Il l'avait disséqué, compris. Sa vérité était profonde, mais lente et non-scalable. L'expert de 2024 ne « connaît » plus les virus individuellement. Il connaît les \textbf{systèmes qui les gèrent}. Sa vérité est large, rapide, mais superficielle. Il a gagné en efficacité ce qu'il a perdu en familiarité. La vérité numérique est devenue un produit industriel, et comme tout produit industriel, elle est standardisée, efficace, mais a perdu l'âme de l'artisanat.
+
+\vspace{1cm}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering
+\textbf{Conclusion :} Cette plongée dans l'archéologie de nos vérités numériques montre que chaque outil que nous forgeons pour voir plus loin modifie aussi notre propre vision. Nous ne cherchons plus les mêmes choses, et ce que nous trouvons, nous ne le voyons plus de la même manière.
+}}
+\end{center} 
+
+\end{document}
