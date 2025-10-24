@@ -1,0 +1,174 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}   
+\usepackage{lmodern}        
+\usepackage{geometry}
+\usepackage{enumitem}       
+\usepackage{babel}
+\usepackage{lmodern}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{array} 
+\usepackage{booktabs}
+\usepackage{hyperref}       
+
+\begin{document}
+\thispagestyle{empty}
+
+% --- Bordure sur toute la page ---
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[line width=4pt, orange]
+    ($(current page.north west) + (1cm,-1cm)$)
+    rectangle
+    ($(current page.south east) + (-1cm,1cm)$);
+\end{tikzpicture}
+
+\vspace*{1.5cm}
+
+% --- Contenu principal : trois colonnes (gauche, centre, droite) ---
+\noindent
+\begin{minipage}{0.3\linewidth}
+    \begin{center}
+        \textbf{RÉPUBLIQUE DU CAMEROUN}\\
+        *****\\
+        Paix - Travail - Patrie\\
+        *****\\[0.3cm]
+
+        \textbf{UNIVERSITÉ DE YAOUNDÉ I}\\
+        *****\\[0.3cm]
+
+        ÉCOLE NATIONALE SUPÉRIEURE\\
+        POLYTECHNIQUE DE YAOUNDÉ\\
+        *****\\[0.3cm]
+
+        \textbf{DÉPARTEMENT DE GÉNIE}\\
+        ***** 
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+    \begin{center}
+        % Logos au centre
+        \includegraphics[width=3cm]{uy1.png}\\[0.5cm]
+        \includegraphics[width=3cm]{polytech.png}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+    \begin{center}
+        \textbf{REPUBLIC OF CAMEROON}\\
+        *****\\
+        Peace - Work - Fatherland\\
+        *****\\[0.3cm]
+
+        \textbf{UNIVERSITY OF YAOUNDE I}\\
+        *****\\[0.3cm]
+
+        NATIONAL ADVANCED SCHOOL\\
+        OF ENGINEERING OF YAOUNDE\\
+        *****\\[0.3cm]
+
+        \textbf{COMPUTER ENGINEERING}\\
+        ***** 
+    \end{center}
+\end{minipage}
+
+\vspace{2cm}
+
+% --- Sujet au centre ---
+\begin{center} 
+	\colorbox{orange!80}{
+        \parbox{\dimexpr\textwidth-4\fboxsep}{
+            \centering
+            {\LARGE \textbf{Techniques et pratiques de l'investigation numérique}}
+        }
+    }\\[0.8cm]
+    {\large \textbf{Sous le thème :} Résumé Techniques et pratiques de l'investigation numérique}\\[1.5cm]
+
+    \textbf{{EMBOLO MVOGO SHAWN DOUGLAS}}\\[0.8cm]
+    \textbf{{Matricule : 22P072}}\\[0.8cm]
+    \textbf{{Filière : CIN4}}\\[0.8cm]
+    Sous la supervision de : \textbf{Mr Minka}\\[1.5cm]
+
+    Année Scolaire : \textbf{2025 -- 2026}
+\end{center}
+
+
+\newpage
+\setcounter{page}{1}
+
+\newpage
+
+
+\section*{Différents éléments constituant l’investigation numérique}
+
+\subsection*{1. Tableau organisé des éléments d’enquête}
+
+\begin{enumerate}[label=\textbf{E\arabic* —}, leftmargin=2cm]
+
+\item \textbf{Message WhatsApp reçu par la victime} \\
+\textbf{Description :} message texte reçu par la victime, potentiellement incriminant. \\
+\textbf{Source :} téléphone de la victime (application WhatsApp).
+
+\item \textbf{Appel téléphonique reçu (signalé par la victime)} \\
+\textbf{Description :} appel entrant pouvant relier l’appelant à l’évènement. \\
+\textbf{Source :} opérateur télécom, téléphone de la victime (logs d’appels).
+
+\item \textbf{Données de localisation téléphonique (géolocalisation)} \\
+\textbf{Description :} positions permettant d’attester de la présence géographique des acteurs. \\
+\textbf{Source :} opérateurs mobiles, téléphone (historique GPS), applications (WhatsApp – partage de position).
+
+\item \textbf{Listing d’appels (historique d’appels)} \\
+\textbf{Description :} liste d’appels entrants/sortants (dates, heures, durées), utile pour confirmer les appels et corréler les événements. \\
+\textbf{Source :} opérateur télécom, téléphone du suspect ou de la victime.
+
+\item \textbf{Messages WhatsApp liés à la fiche technique de localisation} \\
+\textbf{Description :} messages contenant coordonnées, captures de position, instructions logistiques. \\
+\textbf{Source :} conversation WhatsApp (émetteur/récepteur).
+
+\item \textbf{Visionnage / vidéosurveillance du bureau} \\
+\textbf{Description :} enregistrements vidéo montrant les mouvements ou actes au bureau (date, heure, personnes, véhicule). \\
+\textbf{Source :} caméras de surveillance.
+
+\item \textbf{Document prouvant la véritable identité du prétendu « capitaine »} \\
+\textbf{Description :} pièces d’identité, certificats ou documents officiels, falsifiables ou non. Permet d’identifier la personne réelle derrière le pseudonyme. \\
+\textbf{Source :} documents papier, copies numériques, bases administratives.
+
+\item \textbf{Bande sonore recueillie sur le téléphone (enregistrement)} \\
+\textbf{Description :} enregistrement audio sur mobile pouvant attester d’une conversation incriminante. \\
+\textbf{Source :} fichier audio sur téléphone du témoin, de l’accusé ou de la victime.
+
+\item \textbf{Images de vidéosurveillance d’un lieu public (ville)} \\
+\textbf{Description :} vidéos montrant déplacements, véhicules, plaques d’immatriculation, etc. \\
+\textbf{Source :} caméras publiques.
+
+\item \textbf{Exploitation du listing d’appels pour confirmer appel et envoi de deux SMS} \\
+\textbf{Description :} preuves de communication texte et voix corroborant présence ou activité. \\
+\textbf{Source :} opérateur mobile, téléphone.
+
+\item \textbf{Données de géolocalisation concordantes entre plusieurs sources} \\
+\textbf{Description :} convergence des traces GPS renforçant la crédibilité du positionnement. \\
+\textbf{Source :} opérateur, téléphones, applications.
+
+\item \textbf{Thermocopie / capture d’écran des historiques d’appels du téléphone du défunt} \\
+\textbf{Description :} captures d’écran extraites et imprimées montrant l’historique d’appels. \\
+\textbf{Source :} téléphone du défunt.
+
+\item \textbf{Copie des historiques des transactions bancaires (financement des opérations)} \\
+\textbf{Description :} relevés bancaires montrant virements et paiements liés au financement des opérations incriminées. \\
+\textbf{Source :} banques (relevés électroniques), comptes bancaires des suspects.
+
+\item \textbf{Reçus de paiement de la location du véhicule utilisé pour le délit} \\
+\textbf{Description :} factures, reçus ou contrats de location liant le véhicule aux suspects. \\
+\textbf{Source :} société de location.
+
+\end{enumerate}
+
+\end{document}
